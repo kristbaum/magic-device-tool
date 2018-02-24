@@ -2,18 +2,21 @@
 
 ![alt text](https://raw.githubusercontent.com/MariusQuabeck/magic-device-tool/master/mdt.png "magic-device-tool logo")
 
-
-A simple and feature full batch tool to handle installing/replacing Operating Systems (Ubuntu Phone / Ubuntu Touch, Android, CyanogenMod, Maru OS, Sailfish OS, and Phoenix OS) on your mobile devices.
+A simple and featureful tool to handle installing/replacing Operating Systems (Ubuntu Phone / Ubuntu Touch, Android, LineageOS, Maru OS, Sailfish OS, and Phoenix OS) on your mobile devices.
 
 ## Contact
 
 Marius Quabeck [(Email)](mailto:marius.quabeck@ubuntu.com?subject=magic-device-tool)
 
-Mister_Q on irc.freenode.net
+Mister_Q on the freenode IRC network
 
-[Join us on Telegram](https://telegram.me/joinchat/A3LlWgiC4TT5g7yEvAz8cA)
+[Join us on Telegram !](https://t.me/joinchat/AAAAAAiC4TTYHRddjUbpXg)
 
-[Donate if you like](http://paypal.me/MisterQ)
+[Donate if you like this tool](http://paypal.me/MisterQ)
+
+[Buy me devices ;)](https://www.amazon.de/registry/wishlist/3GVUCIW2ZMWC8/ref=cm_sw_em_r_mt_ws__vfwnzbQCE8WVJ)
+
+
 
 ## Standard Disclaimer Text
 This tool **does not** let you Dual Boot between Android and Ubuntu Touch.
@@ -22,21 +25,24 @@ Not all ROMs are available for all devices.
 
 Functions
 ---
-- Ubuntu
+- Ubuntu Touch
   - Install Ubuntu Touch
   - Switch Channels
   - Install OpenStore
   - Screencast
-
+  
+- Ubuntu 13.04 Desktop (tilapia only)
+  - Install Ubuntu 13.04 Desktop
 
 - Android
   - Install CyanogenMod (with or without GApps)
+  - Install LineageOS (with or without GApps)
   - Install Maru OS
   - Install Sailfish OS
   - Install Phoenix OS
   - Install Factory Android Image
   - Backup / Restore
-  - Lock/Unlock bootloader
+  - Lock / Unlock bootloader
   - Install TWRP recovery
 
 - Misc
@@ -44,13 +50,12 @@ Functions
   - Report a bug
 
 
-Requirements
+System Requirements
 ----
 - Ubuntu 16.04 and above
 - A device from the supported list below
 - USB cable for your device
 - Internet connection
-- about 15 minutes (depending on your Internet speed)
 
 Supported devices
 ----
@@ -60,9 +65,10 @@ Supported devices
 - BQ Aquaris M10 HD (cooler)
 - BQ Aquaris M10 FHD (frieza)
 - Meizu MX 4 (arale)
-- ~~Meizu Pro 5 (turbo)~~ removed until Marius can get his hands on this device
+- Meizu Pro 5 (turbo)
 - LG Nexus 4 (mako)
 - LG Nexus 5 (hammerhead)
+- Asus Nexus 7 2012 (tilapia)
 - Asus Nexus 7 2013 WiFi (flo)
 - Asus Nexus 7 2013 LTE (deb)
 - Samsung Nexus 10 (manta)
@@ -73,25 +79,22 @@ Supported devices
 Usage
 -----
 
-Connect the device to the computer with the USB cable
+Use a [distro that is capable of Snaps](https://snapcraft.io/), open a terminal and run:
 
-Clone the repo down to your local machine from github
 ```
-git clone https://github.com/MariusQuabeck/magic-device-tool.git
+sudo snap install magic-device-tool --devmode
 ```
-cd into the new directory
+Run the snap
 ```
-cd magic-device-tool
+magic-device-tool
 ```
-Make the file executable so the script can run
-```
-chmod +x launcher.sh
-```
-run the script
-```
-./launcher.sh
-```
-Then follow the simple on screen guide
+
+If you run into any adb/fastboot permission errors and mdt can't find your device, please start the snap as root
+
+```sudo su``` or ```sudo bash```
+
+```magic-device-tool```
+
 
 FAQ
 ---
@@ -121,18 +124,17 @@ FAQ
 
 TODO
 ------
-- Switch CM to Lineage OS
-- Add more devices
+- Remove Ubuntu/UBports
+- Add instructions for Solus
+- Rename legacy to stable (UBports)
+- Add Plasma Mobile
+- Add Fairphone OS, Fairphone Open & Sailfish for FP2
+- Add LineageOS Extras
 - Add support to install F-Droid
 - Add option "add udev rule"
-- Add Zenity for success/failure prompts
-- Give Aaron access to README
-- Add Plasma Mobile
-- Snap
 - Add feature to flash SD cards with Raspian, Ubuntu,...
-- ~~Add Kali Linux~~
-- ~~Add FAQ section~~
-- Add FlymeOS for Meizu devices
+- Fix udev rules issues properly 
+
 
 Special thanks to
 ---
@@ -144,3 +146,5 @@ Special thanks to
 - [michaelkisiel](https://github.com/michaelkisiel) [mdt-icons](https://github.com/michaelkisiel/mdt-icons)
 - [pdsouza](https://github.com/pdsouza) [Maru OS](https://github.com/maruos/maruos)
 - [kristbaum](https://github.com/kristbaum) FAQ section
+- [Simon Quigley](https://github.com/tsimonq2) Readme corrections
+- [Flohack74](https://github.com/Flohack74) Various code improvements

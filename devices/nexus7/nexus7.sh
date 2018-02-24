@@ -13,49 +13,73 @@ echo "Ubuntu: "
 echo ""
 echo "[1]  Install Ubuntu"
 echo "[2]  Install OpenStore"
-echo "[3]  Screencast"
+echo ""
+echo "[3]  Back Up your UBports device"
+echo ""
+echo "[4]  Screencast"
 echo ""
 echo ""
 echo "Android: "
 echo ""
-echo "[4]  Install Cyanogenmod"
-echo "[5]  Install Sailfish OS"
-echo "[6]  Install Phoenix OS"
-echo "[7]  Install Factory Image"
-echo "[8]  Install TWRP recovery"
-echo "[9]  Back Up your Android device"
+echo "[5]  Install LineageOS"
+echo "[6]  Install Sailfish OS"
+echo "[7]  Install Maru OS"
+echo "[8]  Install Phoenix OS"
+echo "[9]  Install Factory Image"
+echo "[10]  Install TWRP recovery"
+echo "[11] Back Up your Android device"
 echo ""
-echo "[10] Lock/Unlock bootloader (Will wipe existing apps/data)"
+echo "[12] Lock/Unlock bootloader (Will wipe existing apps/data)"
 echo ""
-echo "[11] Back to menu "
+echo "[0] Back to menu "
 echo ""
 echo -n "Enter option: "; read option
-if [ "$option" = "1" ]; then
-. ./devices/nexus7/ubuntu/ubuntu.sh
-elif [ "$option" = "2" ]; then
+case "$option" in
+1)
+  . ./devices/nexus7/ubuntu/ubuntu.sh
+;;
+2)
   . ./devices/generic/ubuntu/openstore.sh
-elif [ "$option" = "3" ]; then
+;;
+3)
+  . ./devices/generic/ubuntu/ubports-backup.sh
+;;
+4)
   . ./devices/nexus7/ubuntu/screencast.sh
-elif [ "$option" = "4" ]; then
-  . ./devices/nexus7/android/cm.sh
-elif [ "$option" = "5" ]; then
+;;
+5)
+  . ./devices/nexus7/android/los.sh
+;;
+6)
   . ./devices/nexus7/android/sailfishos.sh
-elif [ "$option" = "6" ]; then
+;;
+7)
+  . ./devices/nexus7/android/maru.sh
+;;
+8)
   . ./devices/nexus7/android/phoenixos.sh
-elif [ "$option" = "7" ]; then
+;;
+9)
   . ./devices/nexus7/android/factoryimage.sh
-elif [ "$option" = "8" ]; then
+;;
+10)
   . ./devices/nexus7/android/twrp.sh
-elif [ "$option" = "9" ]; then
+;;
+11)
   . ./devices/generic/android/backup.sh
-elif [ "$option" = "10" ]; then
+;;
+12)
   . ./devices/nexus7/android/bootloader.sh
-elif [ "$option" = "11" ]; then
+;;
+0)
   . ./launcher.sh
-else
+;;
+*)
   echo ""
   echo "Invalid Option"
   echo ""
-  echo "Exiting script. Bye Bye"
+  echo "Exiting magic-device-tool. Bye Bye"
   exit
-fi
+;;
+esac
+

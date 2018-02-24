@@ -35,11 +35,11 @@ clear
       adb reboot-bootloader
       echo "Please wait"
       sleep 6
-      wget -c --quiet --show-progress --tries=10 http://people.ubuntu.com/~marius.quabeck/magic-device-tool/recoverys/recovery-cooler.img
+      wget -c --quiet --show-progress --tries=10 -P $HOME/.cache/magic-device-tool/ http://mdt-files.com/downloads/magic-device-tool/recoverys/recovery-cooler.img
       sleep 1
       clear
       echo ""
-      ubuntu-device-flash touch --bootstrap --device cooler --channel ubuntu-touch/rc-proposed/bq-aquaris-pd.en --recovery-image recovery-cooler.img
+      ubuntu-device-flash touch --bootstrap --device cooler --channel ubuntu-touch/rc-proposed/bq-aquaris-pd.en --recovery-image $HOME/.cache/magic-device-tool/recovery-cooler.img
       sleep 1
       echo ""
       echo "Move to your device to finish the setup."
@@ -50,7 +50,7 @@ clear
       #rm recovery-cooler.img
       echo ""
       sleep 1
-      echo "Exiting script. Bye Bye"
+      echo "Exiting magic-device-tool. Bye Bye"
       sleep 1
       exit
     else

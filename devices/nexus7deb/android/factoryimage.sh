@@ -2,7 +2,7 @@ clear
 echo ""
 echo "Install Factory Image"
 echo ""
-echo "Please boot your Nexus 7 into fastboot mode by pressing Power & Volume Up (+)"
+echo "Please boot your Nexus 7 into fastboot mode by pressing Power & Volume Down (-)"
 sleep 1
 echo ""
 echo -n "Is your Nexus 7 in fastboot mode now? [Y] "; read bootloadermode
@@ -22,17 +22,17 @@ fi
     echo ""
     echo "Downloading factory image.."
     echo ""
-    wget -c --quiet --show-progress --tries=10 https://dl.google.com/dl/android/aosp/razorg-mob30x-factory-1cb173c1.tgz
+    wget -c --quiet --show-progress --tries=10 -P $HOME/.cache/magic-device-tool/ https://dl.google.com/dl/android/aosp/razorg-mob30x-factory-1cb173c1.tgz
     sleep 1
-    tar xzf razorg*
+    tar xzf $HOME/.cache/magic-device-tool/razorg*
     sleep 1
-    fastboot flash bootloader ./razorg-mob30x/bootloader-deb-flo-04.08.img
+    fastboot flash bootloader $HOME/.cache/magic-device-tool/razorg-mob30x/bootloader-deb-flo-04.08.img
     fastboot reboot-bootloader
     sleep 6
-    fastboot flash radio ./razorg-mob30x/radio-deb-deb-z00_2.44.0_0213.img
+    fastboot flash radio $HOME/.cache/magic-device-tool/razorg-mob30x/radio-deb-deb-z00_2.44.0_0213.img
     fastboot reboot-bootloader
     sleep 6
-    fastboot -w update ./razorg-mob30x/image-razorg-mob30x.zip
+    fastboot -w update $HOME/.cache/magic-device-tool/razorg-mob30x/image-razorg-mob30x.zip
     sleep 1
     echo ""
     echo "Move to your device to finish the setup."
@@ -43,11 +43,11 @@ fi
     echo ""
     echo "Cleaning up.."
     rm -f /tmp/AttachedDevices
-    rm -rf ./razorg-mob30x
+    #rm -rf ./razorg-mob30x
     #rm -f ./*.tgz
     echo ""
     sleep 1
-    echo "Exiting script. Bye Bye"
+    echo "Exiting magic-device-tool. Bye Bye"
     sleep 1
     exit
   else

@@ -14,45 +14,63 @@ echo ""
 echo "[1]  Install Ubuntu"
 echo "[2]  Install OpenStore"
 echo ""
+echo "[3]  Back Up your UBports device"
+echo ""
 echo ""
 echo "Android:"
 echo ""
-echo "[3]  Install Cyanogenmod"
-echo "[4]  Install Maru OS"
-echo "[5]  Install Sailfish OS"
-echo "[6]  Install Factory Image"
-echo "[7]  Install TWRP recovery"
-echo "[8]  Back Up your Android device"
+echo "[4]  Install Lineage OS"
+echo "[5]  Install Maru OS"
+echo "[6]  Install Sailfish OS"
+echo "[7]  Install Factory Image"
+echo "[8]  Install TWRP recovery"
+echo "[9]  Back Up your Android device"
 echo ""
-echo "[9]  Lock/Unlock bootloader (Will wipe existing apps/data)"
+echo "[10]  Lock/Unlock bootloader (Will wipe existing apps/data)"
 echo ""
-echo "[10] Back to menu "
+echo "[11] Back to menu "
 echo ""
 echo -n "Enter option: "; read option
-if [ "$option" = "1" ]; then
-. ./devices/nexus5/ubuntu/ubuntu.sh
-elif [ "$option" = "2" ]; then
-. ./devices/generic/ubuntu/openstore.sh
-elif [ "$option" = "3" ]; then
-. ./devices/nexus5/android/cm.sh
-elif [ "$option" = "4" ]; then
-. ./devices/nexus5/android/maru.sh
-elif [ "$option" = "5" ]; then
-. ./devices/nexus5/android/sailfishos.sh
-elif [ "$option" = "6" ]; then
-. ./devices/nexus5/android/factoryimage.sh
-elif [ "$option" = "7" ]; then
+case "$option" in
+1)
+  . ./devices/nexus5/ubuntu/ubuntu.sh
+;;
+2)
+  . ./devices/generic/ubuntu/openstore.sh
+;;
+3)
+  . ./devices/generic/ubuntu/ubports-backup.sh
+;;
+4)
+  . ./devices/nexus5/android/los.sh
+;;
+5)
+  . ./devices/nexus5/android/maru.sh
+;;
+6)
+  . ./devices/nexus5/android/sailfishos.sh
+;;
+7)
+  . ./devices/nexus5/android/factoryimage.sh
+;;
+8)
   . ./devices/nexus5/android/twrp.sh
-elif [ "$option" = "8" ]; then
+;;
+9)
   . ./devices/generic/android/backup.sh
-elif [ "$option" = "9" ]; then
+;;
+10)
   . ./devices/nexus5/android/bootloader.sh
-elif [ "$option" = "10" ]; then
+;;
+11)
   . ./launcher.sh
-else
+;;
+*)
   echo ""
   echo "Invalid Option"
   echo ""
-  echo "Exiting script. Bye Bye"
+  echo "Exiting magic-device-tool. Bye Bye"
   exit
-fi
+;;
+esac
+
